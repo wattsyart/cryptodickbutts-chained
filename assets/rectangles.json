@@ -1,0 +1,1226 @@
+{
+  "Background-picnic day": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Background-stone grey": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Background-sunset": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Background-grassy knoll": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Background-ocean mist": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Background-buds": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Background-denza": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Background-denza2": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Background-puls": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Body-backpack": {
+    "x": 24,
+    "y": 23,
+    "w": 10,
+    "h": 9
+  },
+  "Body-ballerina": {
+    "x": 16,
+    "y": 32,
+    "w": 23,
+    "h": 6
+  },
+  "Body-bee wings": {
+    "x": 30,
+    "y": 21,
+    "w": 5,
+    "h": 8
+  },
+  "Body-bikini": {
+    "x": 20,
+    "y": 28,
+    "w": 14,
+    "h": 8
+  },
+  "Body-boxers": {
+    "x": 20,
+    "y": 33,
+    "w": 16,
+    "h": 5
+  },
+  "Body-cape": {
+    "x": 26,
+    "y": 18,
+    "w": 18,
+    "h": 11
+  },
+  "Body-chest hair": {
+    "x": 20,
+    "y": 28,
+    "w": 5,
+    "h": 6
+  },
+  "Body-jumpsuit": {
+    "x": 19,
+    "y": 28,
+    "w": 17,
+    "h": 11
+  },
+  "Body-mankini": {
+    "x": 19,
+    "y": 27,
+    "w": 13,
+    "h": 10
+  },
+  "Body-overalls": {
+    "x": 19,
+    "y": 27,
+    "w": 17,
+    "h": 12
+  },
+  "Body-pasties": {
+    "x": 19,
+    "y": 28,
+    "w": 6,
+    "h": 4
+  },
+  "Body-peed pants": {
+    "x": 20,
+    "y": 32,
+    "w": 16,
+    "h": 7
+  },
+  "Body-pox": {
+    "x": 20,
+    "y": 18,
+    "w": 17,
+    "h": 21
+  },
+  "Body-ruffles": {
+    "x": 19,
+    "y": 24,
+    "w": 14,
+    "h": 14
+  },
+  "Body-sash": {
+    "x": 19,
+    "y": 27,
+    "w": 12,
+    "h": 8
+  },
+  "Body-tracksuit": {
+    "x": 19,
+    "y": 27,
+    "w": 16,
+    "h": 13
+  },
+  "Body-trenchcoat": {
+    "x": 18,
+    "y": 24,
+    "w": 15,
+    "h": 15
+  },
+  "Body-tuxedo": {
+    "x": 19,
+    "y": 27,
+    "w": 16,
+    "h": 13
+  },
+  "Body-vampire cape": {
+    "x": 27,
+    "y": 22,
+    "w": 6,
+    "h": 12
+  },
+  "Butt-gassy": {
+    "x": 34,
+    "y": 22,
+    "w": 15,
+    "h": 17
+  },
+  "Butt-hand print": {
+    "x": 30,
+    "y": 32,
+    "w": 4,
+    "h": 4
+  },
+  "Butt-reddish": {
+    "x": 30,
+    "y": 29,
+    "w": 5,
+    "h": 7
+  },
+  "Butt-wounded": {
+    "x": 31,
+    "y": 32,
+    "w": 3,
+    "h": 3
+  },
+  "Dick-cannon": {
+    "x": 34,
+    "y": 24,
+    "w": 8,
+    "h": 8
+  },
+  "Dick-carrot": {
+    "x": 34,
+    "y": 20,
+    "w": 13,
+    "h": 13
+  },
+  "Dick-chicken": {
+    "x": 32,
+    "y": 31,
+    "w": 7,
+    "h": 8
+  },
+  "Dick-dynamite": {
+    "x": 34,
+    "y": 20,
+    "w": 12,
+    "h": 13
+  },
+  "Dick-elephant trunk": {
+    "x": 34,
+    "y": 18,
+    "w": 11,
+    "h": 15
+  },
+  "Dick-flame": {
+    "x": 35,
+    "y": 16,
+    "w": 6,
+    "h": 12
+  },
+  "Dick-flower": {
+    "x": 36,
+    "y": 18,
+    "w": 7,
+    "h": 8
+  },
+  "Dick-fox": {
+    "x": 33,
+    "y": 18,
+    "w": 14,
+    "h": 16
+  },
+  "Dick-fuse": {
+    "x": 34,
+    "y": 15,
+    "w": 7,
+    "h": 11
+  },
+  "Dick-mushroom": {
+    "x": 34,
+    "y": 17,
+    "w": 10,
+    "h": 16
+  },
+  "Dick-oh canada": {
+    "x": 36,
+    "y": 17,
+    "w": 8,
+    "h": 10
+  },
+  "Dick-old sock": {
+    "x": 34,
+    "y": 24,
+    "w": 10,
+    "h": 9
+  },
+  "Dick-pierced": {
+    "x": 36,
+    "y": 24,
+    "w": 6,
+    "h": 6
+  },
+  "Dick-purpy": {
+    "x": 34,
+    "y": 23,
+    "w": 10,
+    "h": 9
+  },
+  "Dick-rocket": {
+    "x": 31,
+    "y": 24,
+    "w": 11,
+    "h": 11
+  },
+  "Dick-scorpion": {
+    "x": 31,
+    "y": 20,
+    "w": 9,
+    "h": 12
+  },
+  "Dick-spidey": {
+    "x": 34,
+    "y": 13,
+    "w": 19,
+    "h": 20
+  },
+  "Dick-tentacle": {
+    "x": 34,
+    "y": 15,
+    "w": 8,
+    "h": 18
+  },
+  "Dick-umbrella": {
+    "x": 31,
+    "y": 18,
+    "w": 15,
+    "h": 16
+  },
+  "Eyes-alien": {
+    "x": 15,
+    "y": 16,
+    "w": 17,
+    "h": 9
+  },
+  "Eyes-blindfold": {
+    "x": 18,
+    "y": 20,
+    "w": 18,
+    "h": 7
+  },
+  "Eyes-blue": {
+    "x": 18,
+    "y": 20,
+    "w": 11,
+    "h": 4
+  },
+  "Eyes-clout": {
+    "x": 17,
+    "y": 19,
+    "w": 13,
+    "h": 5
+  },
+  "Eyes-cyborg": {
+    "x": 23,
+    "y": 19,
+    "w": 7,
+    "h": 6
+  },
+  "Eyes-designer": {
+    "x": 14,
+    "y": 19,
+    "w": 19,
+    "h": 6
+  },
+  "Eyes-eyelashes": {
+    "x": 15,
+    "y": 18,
+    "w": 18,
+    "h": 6
+  },
+  "Eyes-gas mask": {
+    "x": 16,
+    "y": 18,
+    "w": 14,
+    "h": 13
+  },
+  "Eyes-googly": {
+    "x": 17,
+    "y": 19,
+    "w": 13,
+    "h": 6
+  },
+  "Eyes-green": {
+    "x": 18,
+    "y": 20,
+    "w": 11,
+    "h": 4
+  },
+  "Eyes-heart": {
+    "x": 17,
+    "y": 20,
+    "w": 12,
+    "h": 5
+  },
+  "Eyes-hippie": {
+    "x": 17,
+    "y": 19,
+    "w": 13,
+    "h": 6
+  },
+  "Eyes-mascara": {
+    "x": 20,
+    "y": 23,
+    "w": 9,
+    "h": 4
+  },
+  "Eyes-masquerade": {
+    "x": 16,
+    "y": 19,
+    "w": 15,
+    "h": 7
+  },
+  "Eyes-nerd": {
+    "x": 17,
+    "y": 19,
+    "w": 13,
+    "h": 6
+  },
+  "Eyes-potter": {
+    "x": 17,
+    "y": 19,
+    "w": 13,
+    "h": 6
+  },
+  "Eyes-red veins": {
+    "x": 18,
+    "y": 19,
+    "w": 11,
+    "h": 6
+  },
+  "Eyes-single lens": {
+    "x": 17,
+    "y": 20,
+    "w": 14,
+    "h": 5
+  },
+  "Eyes-ski goggles": {
+    "x": 16,
+    "y": 19,
+    "w": 14,
+    "h": 7
+  },
+  "Eyes-skull mask": {
+    "x": 17,
+    "y": 17,
+    "w": 13,
+    "h": 12
+  },
+  "Eyes-steampunk": {
+    "x": 16,
+    "y": 19,
+    "w": 15,
+    "h": 6
+  },
+  "Eyes-swimming goggles": {
+    "x": 17,
+    "y": 20,
+    "w": 14,
+    "h": 4
+  },
+  "Eyes-third eye": {
+    "x": 21,
+    "y": 18,
+    "w": 4,
+    "h": 3
+  },
+  "Eyes-welding mask": {
+    "x": 17,
+    "y": 18,
+    "w": 14,
+    "h": 12
+  },
+  "Eyes-white mask": {
+    "x": 18,
+    "y": 19,
+    "w": 12,
+    "h": 11
+  },
+  "Eyes-white": {
+    "x": 18,
+    "y": 20,
+    "w": 4,
+    "h": 4
+  },
+  "Hand-baggie": {
+    "x": 21,
+    "y": 32,
+    "w": 9,
+    "h": 8
+  },
+  "Hand-boxing glove": {
+    "x": 22,
+    "y": 30,
+    "w": 8,
+    "h": 8
+  },
+  "Hand-camera": {
+    "x": 17,
+    "y": 30,
+    "w": 8,
+    "h": 7
+  },
+  "Hand-cardboard sign": {
+    "x": 12,
+    "y": 29,
+    "w": 18,
+    "h": 13
+  },
+  "Hand-flag": {
+    "x": 6,
+    "y": 22,
+    "w": 30,
+    "h": 21
+  },
+  "Hand-flamethrower": {
+    "x": 6,
+    "y": 29,
+    "w": 29,
+    "h": 11
+  },
+  "Hand-flowers": {
+    "x": 9,
+    "y": 23,
+    "w": 22,
+    "h": 19
+  },
+  "Hand-gavel": {
+    "x": 15,
+    "y": 28,
+    "w": 16,
+    "h": 9
+  },
+  "Hand-hero\u0027s sword": {
+    "x": 2,
+    "y": 27,
+    "w": 32,
+    "h": 11
+  },
+  "Hand-hook": {
+    "x": 23,
+    "y": 31,
+    "w": 7,
+    "h": 10
+  },
+  "Hand-keyboard": {
+    "x": 15,
+    "y": 31,
+    "w": 19,
+    "h": 9
+  },
+  "Hand-lifesaver": {
+    "x": 20,
+    "y": 30,
+    "w": 13,
+    "h": 12
+  },
+  "Hand-lollipop": {
+    "x": 4,
+    "y": 25,
+    "w": 30,
+    "h": 13
+  },
+  "Hand-luggage": {
+    "x": 20,
+    "y": 31,
+    "w": 13,
+    "h": 11
+  },
+  "Hand-megaphone": {
+    "x": 14,
+    "y": 28,
+    "w": 17,
+    "h": 14
+  },
+  "Hand-pencil": {
+    "x": 11,
+    "y": 31,
+    "w": 23,
+    "h": 5
+  },
+  "Hand-pickle": {
+    "x": 16,
+    "y": 29,
+    "w": 17,
+    "h": 6
+  },
+  "Hand-scythe": {
+    "x": 6,
+    "y": 24,
+    "w": 35,
+    "h": 18
+  },
+  "Hand-skateboard": {
+    "x": 16,
+    "y": 29,
+    "w": 19,
+    "h": 9
+  },
+  "Hand-spiked club": {
+    "x": 7,
+    "y": 29,
+    "w": 25,
+    "h": 7
+  },
+  "Hand-torch": {
+    "x": 12,
+    "y": 22,
+    "w": 20,
+    "h": 12
+  },
+  "Hand-trident": {
+    "x": 4,
+    "y": 26,
+    "w": 39,
+    "h": 13
+  },
+  "Hand-wine": {
+    "x": 11,
+    "y": 32,
+    "w": 21,
+    "h": 7
+  },
+  "Hand-wizard\u0027s staff": {
+    "x": 3,
+    "y": 27,
+    "w": 31,
+    "h": 11
+  },
+  "Hat-afro": {
+    "x": 16,
+    "y": 10,
+    "w": 18,
+    "h": 15
+  },
+  "Hat-antennae": {
+    "x": 14,
+    "y": 8,
+    "w": 22,
+    "h": 14
+  },
+  "Hat-army": {
+    "x": 17,
+    "y": 11,
+    "w": 15,
+    "h": 15
+  },
+  "Hat-balaclava": {
+    "x": 19,
+    "y": 16,
+    "w": 11,
+    "h": 13
+  },
+  "Hat-beret": {
+    "x": 18,
+    "y": 13,
+    "w": 15,
+    "h": 11
+  },
+  "Hat-birthday hat": {
+    "x": 20,
+    "y": 4,
+    "w": 9,
+    "h": 15
+  },
+  "Hat-bonnet": {
+    "x": 16,
+    "y": 13,
+    "w": 19,
+    "h": 17
+  },
+  "Hat-bowl cut": {
+    "x": 18,
+    "y": 13,
+    "w": 13,
+    "h": 7
+  },
+  "Hat-bunny": {
+    "x": 16,
+    "y": 6,
+    "w": 17,
+    "h": 15
+  },
+  "Hat-buns": {
+    "x": 16,
+    "y": 12,
+    "w": 17,
+    "h": 9
+  },
+  "Hat-candle": {
+    "x": 20,
+    "y": 4,
+    "w": 9,
+    "h": 15
+  },
+  "Hat-captain": {
+    "x": 16,
+    "y": 11,
+    "w": 15,
+    "h": 8
+  },
+  "Hat-cat": {
+    "x": 16,
+    "y": 10,
+    "w": 15,
+    "h": 21
+  },
+  "Hat-cowboy": {
+    "x": 15,
+    "y": 11,
+    "w": 19,
+    "h": 8
+  },
+  "Hat-cute ears": {
+    "x": 16,
+    "y": 13,
+    "w": 18,
+    "h": 7
+  },
+  "Hat-detective": {
+    "x": 14,
+    "y": 11,
+    "w": 17,
+    "h": 9
+  },
+  "Hat-dino": {
+    "x": 16,
+    "y": 13,
+    "w": 16,
+    "h": 18
+  },
+  "Hat-exposed brain": {
+    "x": 19,
+    "y": 14,
+    "w": 11,
+    "h": 5
+  },
+  "Hat-fez": {
+    "x": 23,
+    "y": 13,
+    "w": 10,
+    "h": 14
+  },
+  "Hat-franky": {
+    "x": 15,
+    "y": 18,
+    "w": 19,
+    "h": 10
+  },
+  "Hat-fur hat": {
+    "x": 17,
+    "y": 11,
+    "w": 15,
+    "h": 8
+  },
+  "Hat-hero": {
+    "x": 18,
+    "y": 13,
+    "w": 16,
+    "h": 15
+  },
+  "Hat-horns": {
+    "x": 16,
+    "y": 8,
+    "w": 17,
+    "h": 11
+  },
+  "Hat-jester": {
+    "x": 12,
+    "y": 7,
+    "w": 25,
+    "h": 14
+  },
+  "Hat-karen": {
+    "x": 16,
+    "y": 12,
+    "w": 16,
+    "h": 15
+  },
+  "Hat-leeloo": {
+    "x": 17,
+    "y": 13,
+    "w": 15,
+    "h": 14
+  },
+  "Hat-long hair": {
+    "x": 16,
+    "y": 13,
+    "w": 17,
+    "h": 14
+  },
+  "Hat-marge": {
+    "x": 19,
+    "y": 7,
+    "w": 12,
+    "h": 13
+  },
+  "Hat-miner": {
+    "x": 17,
+    "y": 11,
+    "w": 15,
+    "h": 9
+  },
+  "Hat-mohawk": {
+    "x": 16,
+    "y": 10,
+    "w": 18,
+    "h": 12
+  },
+  "Hat-mullet": {
+    "x": 16,
+    "y": 12,
+    "w": 17,
+    "h": 16
+  },
+  "Hat-ogre": {
+    "x": 16,
+    "y": 13,
+    "w": 17,
+    "h": 6
+  },
+  "Hat-party hat": {
+    "x": 19,
+    "y": 11,
+    "w": 11,
+    "h": 8
+  },
+  "Hat-pharaoh": {
+    "x": 17,
+    "y": 10,
+    "w": 17,
+    "h": 18
+  },
+  "Hat-pirate": {
+    "x": 15,
+    "y": 11,
+    "w": 19,
+    "h": 11
+  },
+  "Hat-plant": {
+    "x": 19,
+    "y": 3,
+    "w": 10,
+    "h": 15
+  },
+  "Hat-poop": {
+    "x": 17,
+    "y": 8,
+    "w": 15,
+    "h": 11
+  },
+  "Hat-sanchez": {
+    "x": 14,
+    "y": 10,
+    "w": 21,
+    "h": 15
+  },
+  "Hat-Robinhood": {
+    "x": 16,
+    "y": 10,
+    "w": 16,
+    "h": 9
+  },
+  "Hat-robocop": {
+    "x": 16,
+    "y": 15,
+    "w": 15,
+    "h": 10
+  },
+  "Hat-santa": {
+    "x": 18,
+    "y": 13,
+    "w": 16,
+    "h": 16
+  },
+  "Hat-siren": {
+    "x": 19,
+    "y": 10,
+    "w": 11,
+    "h": 9
+  },
+  "Hat-sombrero": {
+    "x": 12,
+    "y": 9,
+    "w": 26,
+    "h": 16
+  },
+  "Hat-straw hat": {
+    "x": 15,
+    "y": 10,
+    "w": 19,
+    "h": 10
+  },
+  "Hat-strawberry": {
+    "x": 19,
+    "y": 11,
+    "w": 11,
+    "h": 20
+  },
+  "Hat-swimming cap": {
+    "x": 19,
+    "y": 16,
+    "w": 11,
+    "h": 4
+  },
+  "Hat-tinfoil": {
+    "x": 13,
+    "y": 10,
+    "w": 23,
+    "h": 12
+  },
+  "Hat-toque": {
+    "x": 18,
+    "y": 10,
+    "w": 13,
+    "h": 10
+  },
+  "Hat-trucker": {
+    "x": 14,
+    "y": 11,
+    "w": 17,
+    "h": 9
+  },
+  "Hat-unicorn": {
+    "x": 16,
+    "y": 10,
+    "w": 9,
+    "h": 10
+  },
+  "Hat-visor": {
+    "x": 13,
+    "y": 14,
+    "w": 17,
+    "h": 5
+  },
+  "Hat-witch": {
+    "x": 13,
+    "y": 7,
+    "w": 24,
+    "h": 13
+  },
+  "Hat-your future": {
+    "x": 14,
+    "y": 11,
+    "w": 17,
+    "h": 9
+  },
+  "Mouth-bubblegum": {
+    "x": 12,
+    "y": 21,
+    "w": 11,
+    "h": 10
+  },
+  "Mouth-cigar": {
+    "x": 14,
+    "y": 17,
+    "w": 7,
+    "h": 11
+  },
+  "Mouth-clown": {
+    "x": 20,
+    "y": 24,
+    "w": 7,
+    "h": 5
+  },
+  "Mouth-drool": {
+    "x": 20,
+    "y": 27,
+    "w": 6,
+    "h": 4
+  },
+  "Mouth-pierced": {
+    "x": 24,
+    "y": 26,
+    "w": 1,
+    "h": 2
+  },
+  "Nose-pierced": {
+    "x": 23,
+    "y": 23,
+    "w": 1,
+    "h": 2
+  },
+  "Nose-piggy": {
+    "x": 21,
+    "y": 23,
+    "w": 3,
+    "h": 2
+  },
+  "Nose-pinocchio": {
+    "x": 12,
+    "y": 17,
+    "w": 18,
+    "h": 8
+  },
+  "Nose-squid": {
+    "x": 20,
+    "y": 22,
+    "w": 4,
+    "h": 8
+  },
+  "Shoes-basketball": {
+    "x": 20,
+    "y": 38,
+    "w": 11,
+    "h": 4
+  },
+  "Shoes-bunny slippers": {
+    "x": 20,
+    "y": 38,
+    "w": 11,
+    "h": 4
+  },
+  "Shoes-carpet": {
+    "x": 14,
+    "y": 36,
+    "w": 25,
+    "h": 10
+  },
+  "Shoes-chucks": {
+    "x": 20,
+    "y": 38,
+    "w": 11,
+    "h": 4
+  },
+  "Shoes-gym socks": {
+    "x": 20,
+    "y": 37,
+    "w": 11,
+    "h": 5
+  },
+  "Shoes-knight": {
+    "x": 20,
+    "y": 37,
+    "w": 11,
+    "h": 5
+  },
+  "Shoes-pegleg": {
+    "x": 25,
+    "y": 36,
+    "w": 7,
+    "h": 6
+  },
+  "Shoes-rocket": {
+    "x": 18,
+    "y": 38,
+    "w": 17,
+    "h": 12
+  },
+  "Shoes-rollerskates": {
+    "x": 20,
+    "y": 38,
+    "w": 11,
+    "h": 5
+  },
+  "Shoes-roman sandals": {
+    "x": 20,
+    "y": 37,
+    "w": 11,
+    "h": 5
+  },
+  "Shoes-socks \u0026 sandals": {
+    "x": 20,
+    "y": 38,
+    "w": 11,
+    "h": 4
+  },
+  "Shoes-trainers": {
+    "x": 20,
+    "y": 38,
+    "w": 11,
+    "h": 4
+  },
+  "Skin-alien": {
+    "x": 18,
+    "y": 16,
+    "w": 21,
+    "h": 26
+  },
+  "Skin-ape": {
+    "x": 18,
+    "y": 16,
+    "w": 21,
+    "h": 26
+  },
+  "Skin-dark": {
+    "x": 18,
+    "y": 16,
+    "w": 21,
+    "h": 26
+  },
+  "Skin-ghost": {
+    "x": 18,
+    "y": 15,
+    "w": 22,
+    "h": 27
+  },
+  "Skin-light": {
+    "x": 18,
+    "y": 16,
+    "w": 21,
+    "h": 26
+  },
+  "Skin-mid": {
+    "x": 18,
+    "y": 16,
+    "w": 21,
+    "h": 26
+  },
+  "Skin-rainbow": {
+    "x": 18,
+    "y": 16,
+    "w": 21,
+    "h": 26
+  },
+  "Skin-robot": {
+    "x": 18,
+    "y": 9,
+    "w": 21,
+    "h": 33
+  },
+  "Skin-skeleton": {
+    "x": 18,
+    "y": 16,
+    "w": 21,
+    "h": 26
+  },
+  "Skin-vampire": {
+    "x": 18,
+    "y": 16,
+    "w": 21,
+    "h": 26
+  },
+  "Skin-zombie": {
+    "x": 18,
+    "y": 16,
+    "w": 21,
+    "h": 26
+  },
+  "Special-buddy": {
+    "x": 39,
+    "y": 30,
+    "w": 11,
+    "h": 12
+  },
+  "Special-cat": {
+    "x": 5,
+    "y": 27,
+    "w": 16,
+    "h": 15
+  },
+  "Special-jacko-lantern": {
+    "x": 36,
+    "y": 26,
+    "w": 14,
+    "h": 16
+  },
+  "Special-shiba": {
+    "x": 40,
+    "y": 26,
+    "w": 13,
+    "h": 17
+  },
+  "Legendary-Bananabutt": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Butt De Kooning": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Cryptoad Dickbutt": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Dicka Lisa": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Dickasus": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Dickfits": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Dickpet": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Dixty Nine": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Dotbutt": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Lady Libutty": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Paris": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Prototype": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Spider-butt": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  },
+  "Legendary-Telebutty": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+  }
+}
