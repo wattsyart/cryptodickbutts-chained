@@ -179,4 +179,50 @@ contract CryptoDickbuttsChained is Ownable {
         );
         return imageUri;
     }
+
+    /**
+    @notice Retrieves a specific token URI built from raw metadata. This generates a user-defined Cryptodickbutt, not officially part of the collection.
+    @param meta An array of unsigned 8-bit integers (bytes) to use to produce the raw image.
+    @dev The data passed here is not validated, so can result in an illogical Cryptodickbutt, or rendering errors, if the format is not valid.
+    */
+    function buildTokenURI(uint8[] memory meta)
+        external
+        view
+        returns (string memory)
+    {
+        string memory imageUri = builder.getImage(renderer, encoder, meta);
+        uint64 metaHash = uint64(uint256(keccak256(abi.encodePacked(meta))));
+        (uint256 canonicalWidth, uint256 canonicalHeight) = builder
+            .getCanonicalSize();
+        string memory imageDataUri = svgWrapper.getWrappedImage(
+            imageUri,
+            canonicalWidth,
+            canonicalHeight
+        );
+        return
+            uriBuilder.build(
+                metadata,
+                strings,
+                metaHash,
+                imageUri,
+                imageDataUri,
+                DESCRIPTION,
+                EXTERNAL_URL,
+                PREFIX,
+                meta
+            );
+    }
+
+    /**
+    @notice Retrieves a specific image URI built from raw metadata. This generates a user-defined Cryptodickbutt image, not officially part of the collection.
+    @param meta An array of unsigned 8-bit integers (bytes) to use to produce the raw image.
+    @dev The data passed here is not validated, so can result in an illogical Cryptodickbutt, or rendering errors, if the format is not valid.
+    */
+    function buildImageURI(uint8[] memory meta)
+        external
+        view
+        returns (string memory)
+    {
+        return builder.getImage(renderer, encoder, meta);
+    }
 }
