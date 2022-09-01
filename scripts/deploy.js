@@ -104,13 +104,13 @@ async function deployContracts(ethers, quiet, trace, txOptions, hid, signerOverr
   output["CryptoDickbuttsRandom"] = await deployContract(manifest, ethers, "CryptoDickbuttsRandom", quiet, trace, txOptions, hid, signerOverride);
   output["CryptoDickbuttsChained"] = await deployContract(manifest, ethers, "CryptoDickbuttsChained", quiet, trace, txOptions, hid, signerOverride);
   
-  await deployFeatures(output["CryptoDickbuttsBuilder"], quiet);
-  await setDependencies(output, txOptions);
+  await deployFeatures(output["CryptoDickbuttsBuilder"], quiet, txOptions);
+  await setDependencies(output, quiet, txOptions);
 
   return output;
 }
 
-async function setDependencies(output, txOptions) {
+async function setDependencies(output, quiet, txOptions) {
   var tx;
   
   tx = await output["CryptoDickbuttsChained"].setEncoder(output["GIFEncoder"].address, txOptions);  
@@ -146,7 +146,7 @@ async function setDependencies(output, txOptions) {
   if(!quiet) console.log(`set random to ${output["CryptoDickbuttsRandom"].address}`);
 }
 
-async function deployFeatures(Builder, quiet) {
+async function deployFeatures(Builder, quiet, txOptions) {
   var featuresToSet = [];
 
   const files = fs.readdirSync("./features/");
@@ -165,7 +165,7 @@ async function deployFeatures(Builder, quiet) {
 
   var totalCost = 0;
   for (var i = 0; i < featuresToSet.length; i++) {
-      var tx = await Builder.setData(featuresToSet[i].index, featuresToSet[i].buffer);
+      var tx = await Builder.setData(featuresToSet[i].index, featuresToSet[i].buffer, txOptions);
       const receipt = await tx.wait();
       var cost = (receipt.gasUsed * gwei) * .000000001;
       totalCost += cost;
