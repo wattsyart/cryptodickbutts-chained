@@ -11,7 +11,7 @@ require("hardhat-gas-reporter");
  * @type import('hardhat/config').HardhatUserConfig
  */
  module.exports = {
-  defaultNetwork: "hardhat",
+  defaultNetwork: "privatenode",
   networks: {    
     hardhat: {
       gas: "auto",
