@@ -191,9 +191,7 @@ contract CryptoDickbuttsChained is Ownable {
         returns (string memory)
     {
         string memory imageUri = builder.getImage(renderer, encoder, meta);
-        uint64 metaHash = uint64(uint256(keccak256(abi.encodePacked(meta))));
-        (uint256 canonicalWidth, uint256 canonicalHeight) = builder
-            .getCanonicalSize();
+        (uint256 canonicalWidth, uint256 canonicalHeight) = builder.getCanonicalSize();
         string memory imageDataUri = svgWrapper.getWrappedImage(
             imageUri,
             canonicalWidth,
@@ -203,7 +201,7 @@ contract CryptoDickbuttsChained is Ownable {
             uriBuilder.build(
                 metadata,
                 strings,
-                metaHash,
+                uint64(uint256(keccak256(abi.encodePacked(meta)))),
                 imageUri,
                 imageDataUri,
                 DESCRIPTION,
