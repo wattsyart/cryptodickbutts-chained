@@ -27,7 +27,7 @@ contract CryptoDickbuttsBuilder is Ownable, IBuilder {
     }
 
     /**
-    @notice Returns the canonical image for the given metadata buffer, in an encoded GIF data URI format.
+    @notice Returns the canonical image for the given metadata buffer, in an encoded data URI format.
      */
     function getImage(IPixelRenderer renderer, IAnimationEncoder encoder, uint8[] memory metadata) external override view returns (string memory) {
         return encoder.getDataUri(_getAnimation(renderer, metadata));

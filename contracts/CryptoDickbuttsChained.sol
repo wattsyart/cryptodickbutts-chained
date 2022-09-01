@@ -16,8 +16,7 @@ import "./lib/graphics/IAnimationEncoder.sol";
 import "./lib/graphics/IPixelRenderer.sol";
 
 contract CryptoDickbuttsChained is Ownable {
-    bytes public constant DESCRIPTION =
-        "Once a utopia, Gooch Island has fallen and CryptoDickbutts have been evacuated. Series 3 features 5200 all new CryptoDickbutts, each with a set of randomly generated traits.";
+    bytes public constant DESCRIPTION = "Once a utopia, Gooch Island has fallen and CryptoDickbutts have been evacuated. Series 3 features 5200 all new CryptoDickbutts, each with a set of randomly generated traits.";
     bytes public constant EXTERNAL_URL = "https://cryptodickbutts.com/";
     bytes public constant PREFIX = "CryptoDickbutt";
 
