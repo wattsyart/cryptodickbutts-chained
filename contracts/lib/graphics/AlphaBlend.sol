@@ -8,7 +8,8 @@ library AlphaBlend {
         None,
         Default,
         Accurate,
-        Fast
+        Fast,
+        Pillow
     }
 
     /**
@@ -92,5 +93,35 @@ library AlphaBlend {
         uint32 rb = ((na * (bg & RED_BLUE_MASK)) + (a * (fg & RED_BLUE_MASK))) >> 8;
         uint32 ag = (na * ((bg & ALPHA_GREEN_MASK) >> 8)) + (a * (ONE_OVER_ALPHA_MASK | ((fg & GREEN_MASK) >> 8)));
         return ((rb & RED_BLUE_MASK) | (ag & ALPHA_GREEN_MASK));
+    }
+
+    /**
+     @notice An accuracy-focused blend that rounds results after calculating values for each channel using both alpha values.
+     @dev Ported from https://github.com/python-pillow/Pillow/blob/main/src/libImaging/AlphaComposite.c
+     */
+    function alpha_composite_pillow(uint32 bg, uint32 fg)
+        internal
+        pure
+        returns (uint32)    
+    {
+        uint32 o = uint8(fg >> 24) * 0xFF + uint8(bg >> 24) * (0xFF - uint8(fg >> 24));
+        uint64 a = uint8(fg >> 24) * 0xFF * 0xFF * (1 << 7) / o;
+        uint64 na = 0xFF * (1 << 7) - a;
+
+        uint64 r1 = uint8(fg >> 16) * a + uint8(bg >> 16) * na + (0x80 << 7);
+        uint64 g1 = uint8(fg >> 8) * a + uint8(bg >> 8) * na + (0x80 << 7);
+        uint64 b1 = uint8(fg >> 0) * a + uint8(bg >> 0) * na + (0x80 << 7);
+
+        uint64 r = ((r1 >> 8) + r1) >> 8 >> 7;
+        uint64 g = ((g1 >> 8) + g1) >> 8 >> 7;
+        uint64 b = ((b1 >> 8) + b1) >> 8 >> 7; 
+
+        uint32 rgb;
+        rgb |= uint32(0xFF) << 24;
+        rgb |= uint32(r << 16);
+        rgb |= uint32(g << 8);
+        rgb |= uint32(b);
+
+        return rgb;
     }
 }

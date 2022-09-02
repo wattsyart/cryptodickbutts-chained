@@ -170,7 +170,9 @@ contract PixelRenderer is IPixelRenderer {
             return AlphaBlend.alpha_composite_accurate(bg, fg);
         } else if(blend == AlphaBlend.Type.Fast) {
             return AlphaBlend.alpha_composite_fast(bg, fg);
-        }        
+        } else if(blend == AlphaBlend.Type.Pillow) {
+            return AlphaBlend.alpha_composite_pillow(bg, fg);
+        }       
         return fg;
     }
 
