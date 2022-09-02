@@ -7,7 +7,7 @@ import "./AlphaBlend.sol";
 
 struct DrawFrame {
     bytes buffer;
-    uint position;
+    uint256 position;
     AnimationFrame frame;
     uint32[] colors;
     uint8 ox;

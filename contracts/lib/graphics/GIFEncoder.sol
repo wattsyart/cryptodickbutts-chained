@@ -10,7 +10,6 @@ import "./Animation.sol";
             This is important if the art shouldn't change fundamentally depending on which process is doing the SVG rendering, such as a browser or custom application.
  */
 contract GIFEncoder is IAnimationEncoder {
-    
     uint32 private constant MASK = (1 << 12) - 1;
     uint32 private constant CLEAR_CODE = 256;
     uint32 private constant END_CODE = 257;
@@ -43,13 +42,21 @@ contract GIFEncoder is IAnimationEncoder {
         uint32 chunkSize;
     }
 
-    function getDataUri(Animation memory animation) external pure returns (string memory) {
-        (bytes memory buffer, uint length) = encode(animation);
+    function getDataUri(Animation memory animation)
+        external
+        pure
+        returns (string memory)
+    {
+        (bytes memory buffer, uint256 length) = encode(animation);
         string memory base64 = Base64.encode(buffer, length);
         return string(abi.encodePacked(GIF_URI_PREFIX, base64));
     }
 
-    function encode(Animation memory animation) private pure returns (bytes memory buffer, uint length) {
+    function encode(Animation memory animation)
+        private
+        pure
+        returns (bytes memory buffer, uint256 length)
+    {
         buffer = new bytes(animation.width * animation.height * 3);
         uint32 position = 0;
 
@@ -102,7 +109,13 @@ contract GIFEncoder is IAnimationEncoder {
                 packed |= 1 << 0;
                 position = writeByte(buffer, position, packed);
 
-                position = writeUInt16(buffer, position, animation.frameCount > 1 ? animation.frames[i].delay : uint16(0));                
+                position = writeUInt16(
+                    buffer,
+                    position,
+                    animation.frameCount > 1
+                        ? animation.frames[i].delay
+                        : uint16(0)
+                );
                 position = writeByte(buffer, position, 0);
                 position = writeByte(buffer, position, 0);
             }
@@ -112,8 +125,16 @@ contract GIFEncoder is IAnimationEncoder {
                 position = writeByte(buffer, position, 0x2C);
                 position = writeUInt16(buffer, position, uint16(0));
                 position = writeUInt16(buffer, position, uint16(0));
-                position = writeUInt16(buffer, position, animation.frames[i].width);
-                position = writeUInt16(buffer, position, animation.frames[i].height);
+                position = writeUInt16(
+                    buffer,
+                    position,
+                    animation.frames[i].width
+                );
+                position = writeUInt16(
+                    buffer,
+                    position,
+                    animation.frames[i].height
+                );
 
                 uint8 packed = 0;
                 packed |= 0 << 7;
@@ -181,7 +202,6 @@ contract GIFEncoder is IAnimationEncoder {
         AnimationFrame memory frame,
         LZW memory lzw
     ) private pure returns (uint32, uint32) {
-                
         position = writeByte(buffer, position, 8);
         position = writeByte(buffer, position, 0);
 
@@ -209,10 +229,9 @@ contract GIFEncoder is IAnimationEncoder {
             );
             gct.count = c;
             lzw.activePrefix = p;
-        }        
+        }
 
         for (uint32 i = 1; i < frame.width * frame.height; i++) {
-
             (uint32 c, uint32 p) = getColorTableIndex(
                 buffer,
                 gct.start,
@@ -271,7 +290,11 @@ contract GIFEncoder is IAnimationEncoder {
         return (position, gct.count);
     }
 
-    function writeColor(bytes memory buffer, uint32 position, LZW memory lzw) private pure returns (uint32) {
+    function writeColor(
+        bytes memory buffer,
+        uint32 position,
+        LZW memory lzw
+    ) private pure returns (uint32) {
         uint32 lastTreePosition = 0;
         uint32 foundSuffix = 0;
 
@@ -287,25 +310,26 @@ contract GIFEncoder is IAnimationEncoder {
                     found = true;
                     break;
                 } else if (lzw.activeSuffix < foundSuffix) {
-                    treePosition = (lzw.codeTable[treePosition - CODE_START] >> 8) & MASK;
+                    treePosition =
+                        (lzw.codeTable[treePosition - CODE_START] >> 8) &
+                        MASK;
                 } else {
-                    treePosition = lzw.codeTable[treePosition - CODE_START] >> 20;
+                    treePosition =
+                        lzw.codeTable[treePosition - CODE_START] >>
+                        20;
                 }
             }
         }
 
         if (!found) {
             {
-                (
-                    uint32 p,
-                    Pending memory pending
-                ) = writeVariableBitsChunked(
-                        buffer,
-                        position,
-                        lzw.activePrefix,
-                        lzw.codeBitsUsed,
-                        lzw.pending
-                    );
+                (uint32 p, Pending memory pending) = writeVariableBitsChunked(
+                    buffer,
+                    position,
+                    lzw.activePrefix,
+                    lzw.codeBitsUsed,
+                    lzw.pending
+                );
                 position = p;
                 lzw.pending = pending;
             }
@@ -333,14 +357,25 @@ contract GIFEncoder is IAnimationEncoder {
                 lzw.codeBitsUsed = 9;
             } else {
                 if (lastTreePosition == 0)
-                    lzw.treeRoots[lzw.activePrefix] = uint16(CODE_START + lzw.codeCount);
+                    lzw.treeRoots[lzw.activePrefix] = uint16(
+                        CODE_START + lzw.codeCount
+                    );
                 else if (lzw.activeSuffix < foundSuffix)
-                    lzw.codeTable[lastTreePosition - CODE_START] = (lzw.codeTable[lastTreePosition - CODE_START] & ~(MASK << 8)) | (uint32(CODE_START + lzw.codeCount) << 8);
+                    lzw.codeTable[lastTreePosition - CODE_START] =
+                        (lzw.codeTable[lastTreePosition - CODE_START] &
+                            ~(MASK << 8)) |
+                        (uint32(CODE_START + lzw.codeCount) << 8);
                 else {
-                    lzw.codeTable[lastTreePosition - CODE_START] = (lzw.codeTable[lastTreePosition - CODE_START] & ~(MASK << 20)) | (uint32(CODE_START + lzw.codeCount) << 20);
+                    lzw.codeTable[lastTreePosition - CODE_START] =
+                        (lzw.codeTable[lastTreePosition - CODE_START] &
+                            ~(MASK << 20)) |
+                        (uint32(CODE_START + lzw.codeCount) << 20);
                 }
 
-                if (uint32(CODE_START + lzw.codeCount) == (uint32(1) << uint32(lzw.codeBitsUsed))) {
+                if (
+                    uint32(CODE_START + lzw.codeCount) ==
+                    (uint32(1) << uint32(lzw.codeBitsUsed))
+                ) {
                     lzw.codeBitsUsed++;
                 }
 
@@ -351,7 +386,7 @@ contract GIFEncoder is IAnimationEncoder {
         }
 
         return position;
-    }    
+    }
 
     function writeVariableBitsChunked(
         bytes memory buffer,
@@ -413,11 +448,15 @@ contract GIFEncoder is IAnimationEncoder {
 
         uint32 i = 1;
         for (; i < colorCount; i++) {
-            if (uint8(buffer[colorTableStart + i * 3 + 0]) != uint8(target >> 16)
+            if (
+                uint8(buffer[colorTableStart + i * 3 + 0]) !=
+                uint8(target >> 16)
             ) continue;
-            if (uint8(buffer[colorTableStart + i * 3 + 1]) != uint8(target >> 8)
+            if (
+                uint8(buffer[colorTableStart + i * 3 + 1]) != uint8(target >> 8)
             ) continue;
-            if (uint8(buffer[colorTableStart + i * 3 + 2]) != uint8(target >> 0)
+            if (
+                uint8(buffer[colorTableStart + i * 3 + 2]) != uint8(target >> 0)
             ) continue;
             return (colorCount, i);
         }
@@ -433,9 +472,15 @@ contract GIFEncoder is IAnimationEncoder {
                 )
             );
         } else {
-            buffer[colorTableStart + colorCount * 3 + 0] = bytes1(uint8(target >> 16));
-            buffer[colorTableStart + colorCount * 3 + 1] = bytes1(uint8(target >> 8));
-            buffer[colorTableStart + colorCount * 3 + 2] = bytes1(uint8(target >> 0));
+            buffer[colorTableStart + colorCount * 3 + 0] = bytes1(
+                uint8(target >> 16)
+            );
+            buffer[colorTableStart + colorCount * 3 + 1] = bytes1(
+                uint8(target >> 8)
+            );
+            buffer[colorTableStart + colorCount * 3 + 2] = bytes1(
+                uint8(target >> 0)
+            );
             return (colorCount + 1, colorCount);
         }
     }
@@ -452,9 +497,12 @@ contract GIFEncoder is IAnimationEncoder {
         for (uint32 i = 1; i < colorCount; i++) {
             uint32 distance;
             {
-                uint8 rr = uint8(buffer[colorTableStart + i * 3 + 0]) - uint8(target >> 16);
-                uint8 gg = uint8(buffer[colorTableStart + i * 3 + 1]) - uint8(target >> 8);
-                uint8 bb = uint8(buffer[colorTableStart + i * 3 + 2]) - uint8(target >> 0);
+                uint8 rr = uint8(buffer[colorTableStart + i * 3 + 0]) -
+                    uint8(target >> 16);
+                uint8 gg = uint8(buffer[colorTableStart + i * 3 + 1]) -
+                    uint8(target >> 8);
+                uint8 bb = uint8(buffer[colorTableStart + i * 3 + 2]) -
+                    uint8(target >> 0);
                 distance = rr * rr + gg * gg + bb * bb;
             }
             if (distance < bestDistance) {

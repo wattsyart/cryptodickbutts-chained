@@ -2,13 +2,11 @@
 
 pragma solidity ^0.8.13;
 
-import "./IPixelRenderer.sol";
 import "../BufferUtils.sol";
+
+import "./IPixelRenderer.sol";
 import "./Errors.sol";
-
 import "./AlphaBlend.sol";
-
-import "hardhat/console.sol";
 
 /** @notice Pixel renderer using basic drawing instructions: fill, line, and dot. */
 contract PixelRenderer is IPixelRenderer {
@@ -163,16 +161,20 @@ contract PixelRenderer is IPixelRenderer {
         }
     }
 
-    function blendPixel(uint32 bg, uint32 fg, AlphaBlend.Type blend) private pure returns (uint32) {        
-        if(blend == AlphaBlend.Type.Default) {
+    function blendPixel(
+        uint32 bg,
+        uint32 fg,
+        AlphaBlend.Type blend
+    ) private pure returns (uint32) {
+        if (blend == AlphaBlend.Type.Default) {
             return AlphaBlend.alpha_composite_default(bg, fg);
-        } else if(blend == AlphaBlend.Type.Accurate) {
+        } else if (blend == AlphaBlend.Type.Accurate) {
             return AlphaBlend.alpha_composite_accurate(bg, fg);
-        } else if(blend == AlphaBlend.Type.Fast) {
+        } else if (blend == AlphaBlend.Type.Fast) {
             return AlphaBlend.alpha_composite_fast(bg, fg);
-        } else if(blend == AlphaBlend.Type.Pillow) {
+        } else if (blend == AlphaBlend.Type.Pillow) {
             return AlphaBlend.alpha_composite_pillow(bg, fg);
-        }       
+        }
         return fg;
     }
 
