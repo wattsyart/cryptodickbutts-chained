@@ -104,9 +104,10 @@ library AlphaBlend {
         pure
         returns (uint32)    
     {
-        uint32 o = uint8(fg >> 24) * 0xFF + uint8(bg >> 24) * (0xFF - uint8(fg >> 24));
-        uint64 a = uint8(fg >> 24) * 0xFF * 0xFF * (1 << 7) / o;
-        uint64 na = 0xFF * (1 << 7) - a;
+        uint32 m = uint32(0xFF);
+        uint32 o = uint8(fg >> 24) * m + uint8(bg >> 24) * (m - uint8(fg >> 24));
+        uint64 a = uint8(fg >> 24) * m * 0xFF * (1 << 7) / o;
+        uint64 na = m * (1 << 7) - a;
 
         uint64 r1 = uint8(fg >> 16) * a + uint8(bg >> 16) * na + (0x80 << 7);
         uint64 g1 = uint8(fg >> 8) * a + uint8(bg >> 8) * na + (0x80 << 7);
