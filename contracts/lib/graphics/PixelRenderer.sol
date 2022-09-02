@@ -166,7 +166,7 @@ contract PixelRenderer is IPixelRenderer {
     }
 
     function blendPixel(uint32 bg, uint32 fg) private pure returns (uint32) {        
-        return AlphaBlend.alpha_composite_pillow(bg, fg);
+        return AlphaBlend.alpha_composite_default(bg, fg);
     }
 
     function abs(int256 x) internal pure returns (int256) {
