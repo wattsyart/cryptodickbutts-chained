@@ -79,7 +79,7 @@ library AlphaBlend {
     uint32 public constant ONE_OVER_ALPHA_MASK = 0x01000000;
 
     /**
-     @notice An speed-focus blend that calculates red and blue channels simultaneously, with error trending to black.
+     @notice A speed-focused blend that calculates red and blue channels simultaneously, with error trending to black.
      @dev Based on: https://stackoverflow.com/a/27141669
      */
     function alpha_composite_fast(uint32 bg, uint32 fg)
@@ -92,14 +92,5 @@ library AlphaBlend {
         uint32 rb = ((na * (bg & RED_BLUE_MASK)) + (a * (fg & RED_BLUE_MASK))) >> 8;
         uint32 ag = (na * ((bg & ALPHA_GREEN_MASK) >> 8)) + (a * (ONE_OVER_ALPHA_MASK | ((fg & GREEN_MASK) >> 8)));
         return ((rb & RED_BLUE_MASK) | (ag & ALPHA_GREEN_MASK));
-    }
-
-    uint32 public constant PRECISION_BITS = 7;
-
-    struct rgba {
-        uint8 r;
-        uint8 g;
-        uint8 b;
-        uint8 a;
     }
 }
