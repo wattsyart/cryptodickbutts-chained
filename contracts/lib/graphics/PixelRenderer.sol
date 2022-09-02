@@ -118,16 +118,16 @@ contract PixelRenderer is IPixelRenderer {
         int32 x,
         int32 y,
         uint32 color,
-        bool blend
+        AlphaBlend.Type blend
     ) private pure {
         uint32 p = uint32(int16(frame.width) * y + x);
-        frame.buffer[p] = blend ? blendPixel(frame.buffer[p], color) : color;
+        frame.buffer[p] = blendPixel(frame.buffer[p], color, blend);
     }
 
     function line(
         AnimationFrame memory frame,
         Line2D memory f,
-        bool blend
+        AlphaBlend.Type blend
     ) private pure {
         int256 x0 = f.v0.x;
         int256 x1 = f.v1.x;
@@ -147,9 +147,7 @@ contract PixelRenderer is IPixelRenderer {
                 y0 >= int32(0)
             ) {
                 uint256 p = uint256(int16(frame.width) * y0 + x0);
-                frame.buffer[p] = blend
-                    ? blendPixel(frame.buffer[p], f.color)
-                    : f.color;
+                frame.buffer[p] = blendPixel(frame.buffer[p], f.color, blend);
             }
 
             if (x0 == x1 && y0 == y1) break;
@@ -165,8 +163,15 @@ contract PixelRenderer is IPixelRenderer {
         }
     }
 
-    function blendPixel(uint32 bg, uint32 fg) private pure returns (uint32) {        
-        return AlphaBlend.alpha_composite_default(bg, fg);
+    function blendPixel(uint32 bg, uint32 fg, AlphaBlend.Type blend) private pure returns (uint32) {        
+        if(blend == AlphaBlend.Type.Default) {
+            return AlphaBlend.alpha_composite_default(bg, fg);
+        } else if(blend == AlphaBlend.Type.Accurate) {
+            return AlphaBlend.alpha_composite_accurate(bg, fg);
+        } else if(blend == AlphaBlend.Type.Fast) {
+            return AlphaBlend.alpha_composite_fast(bg, fg);
+        }        
+        return fg;
     }
 
     function abs(int256 x) internal pure returns (int256) {

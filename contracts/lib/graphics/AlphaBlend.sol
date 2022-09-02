@@ -4,6 +4,13 @@ pragma solidity ^0.8.13;
 
 library AlphaBlend {
 
+    enum Type {
+        None,
+        Default,
+        Accurate,
+        Fast
+    }
+
     /**
      @notice A simplicity-focused blend, that over compensates alpha to "good enough" values, with error trending towards saturation.
      */
@@ -27,6 +34,35 @@ library AlphaBlend {
         uint32 g = (a * (g2 & 0xFF) + na * (g1 & 0xFF)) >> 8;
         uint32 b = (a * (b2 & 0xFF) + na * (b1 & 0xFF)) >> 8;
 
+        uint32 rgb;
+        rgb |= uint32(0xFF) << 24;
+        rgb |= r << 16;
+        rgb |= g << 8;
+        rgb |= b;
+
+        return rgb;
+    }
+
+    /**
+     @notice An accuracy-focused blend that removes bias across color channels.
+     @dev See: https://stackoverflow.com/a/1230272
+     */
+    function alpha_composite_accurate(uint32 bg, uint32 fg)
+        internal
+        pure
+        returns (uint32)
+    {
+        uint32 a = (fg >> 24) & 0xFF;
+        uint32 na = 255 - a;
+
+        uint32 rh = uint8(fg >> 16) * a + uint8(bg >> 16) * na + 0x80;
+        uint32 gh = uint8(fg >>  8) * a + uint8(bg >>  8) * na + 0x80;
+        uint32 bh = uint8(fg >>  0) * a + uint8(bg >>  0) * na + 0x80;
+
+        uint32 r = ((rh >> 8) + rh) >> 8;
+        uint32 g = ((gh >> 8) + gh) >> 8;
+        uint32 b = ((bh >> 8) + bh) >> 8;
+        
         uint32 rgb;
         rgb |= uint32(0xFF) << 24;
         rgb |= r << 16;

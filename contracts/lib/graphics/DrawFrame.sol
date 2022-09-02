@@ -3,6 +3,7 @@
 pragma solidity ^0.8.13;
 
 import "./AnimationFrame.sol";
+import "./AlphaBlend.sol";
 
 struct DrawFrame {
     bytes buffer;
@@ -11,5 +12,5 @@ struct DrawFrame {
     uint32[] colors;
     uint8 ox;
     uint8 oy;
-    bool blend;
+    AlphaBlend.Type blend;
 }

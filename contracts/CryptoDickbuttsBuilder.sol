@@ -94,7 +94,7 @@ contract CryptoDickbuttsBuilder is Ownable, IBuilder {
         bytes memory buffer = SSTORE2.read(feature);
         (offsetX, position) = _readByte(position, buffer);
         (offsetY, position) = _readByte(position, buffer);
-        _renderFrame(renderer, frame, buffer, position, offsetX, offsetY, true);
+        _renderFrame(renderer, frame, buffer, position, offsetX, offsetY);
     }
 
     function _readByte(uint256 position, bytes memory buffer)
@@ -112,8 +112,7 @@ contract CryptoDickbuttsBuilder is Ownable, IBuilder {
         bytes memory buffer,
         uint256 position,
         uint8 offsetX,
-        uint8 offsetY,
-        bool blend
+        uint8 offsetY
     ) private pure returns (uint256) {
         (uint32[] memory colors, uint256 positionAfterColor) = renderer
             .getColorTable(buffer, position);
@@ -128,7 +127,7 @@ contract CryptoDickbuttsBuilder is Ownable, IBuilder {
                     colors,
                     offsetX,
                     offsetY,
-                    blend
+                    AlphaBlend.Type.Default
                 )
             );
         frame.buffer = newBuffer;
