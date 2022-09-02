@@ -104,7 +104,10 @@ async function deployContracts(ethers, quiet, trace, txOptions, hid, signerOverr
   output["CryptoDickbuttsRandom"] = await deployContract(manifest, ethers, "CryptoDickbuttsRandom", quiet, trace, txOptions, hid, signerOverride);
   output["CryptoDickbuttsChained"] = await deployContract(manifest, ethers, "CryptoDickbuttsChained", quiet, trace, txOptions, hid, signerOverride);
   
-  await deployFeatures(output["CryptoDickbuttsBuilder"], quiet, txOptions);
+  const contract = output["CryptoDickbuttsBuilder"];
+  
+  await deployFeatures(contract, quiet, txOptions);
+  await deployDeltas(contract, quiet, txOptions);
   await setDependencies(output, quiet, txOptions);
 
   return output;
@@ -173,5 +176,35 @@ async function deployFeatures(Builder, quiet, txOptions) {
   }
 
   if(!quiet) console.log(`Deployed ${featuresToSet.length} features.`);
+  if(!quiet) console.log(`Total cost in ETH assuming ${gwei} gas: ${totalCost}`);
+}
+
+async function deployDeltas(Builder, quiet, txOptions) {
+  var deltasToSet = [];
+
+  const files = fs.readdirSync("./deltas/");
+
+  files.forEach(function (file) {
+      var filePath = `./deltas/${file}`;
+      var index = parseInt(file.substring(0, file.indexOf(".bin")));      
+      var buffer = fs.readFileSync(filePath);
+      var deltaToSet = { index: index, buffer: buffer, name: file };
+      deltasToSet.push(deltaToSet);
+  });
+
+  if(!quiet) console.log(`Found ${deltasToSet.length} deltas.`);
+
+  const gwei = 10;
+
+  var totalCost = 0;
+  for (var i = 0; i < deltasToSet.length; i++) {
+      var tx = await Builder.setDelta(deltasToSet[i].index, deltasToSet[i].buffer, txOptions);
+      const receipt = await tx.wait();
+      var cost = (receipt.gasUsed * gwei) * .000000001;
+      totalCost += cost;
+      if(!quiet) console.log(`#${deltasToSet[i].index} (${deltasToSet[i].name}) (${i + 1} / ${deltasToSet.length})`);
+  }
+
+  if(!quiet) console.log(`Deployed ${deltasToSet.length} deltas.`);
   if(!quiet) console.log(`Total cost in ETH assuming ${gwei} gas: ${totalCost}`);
 }
