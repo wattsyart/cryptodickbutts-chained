@@ -18,9 +18,8 @@ describe("Deployments", function () {
 
         // Use explicit gas if running on a real network
         var txOptions;
-        if (chainId == 8134646) {
-            txOptions = null; // privatenode
-        } else if (chainId == 31337) {
+        if (chainId == 8134646 || chainId == 31337) {
+            txOptions = null;
             deleteFileIfExists("./scripts/manifest.json");
         } else {
             txOptions = getTxOptions();
