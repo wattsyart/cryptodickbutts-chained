@@ -8,5 +8,5 @@ import "../graphics/ISVGWrapper.sol";
 
 interface IBuilder {
     function getCanonicalSize() external view returns (uint width, uint height);
-    function getImage(IPixelRenderer renderer, IAnimationEncoder encoder, uint8[] memory metadata) external view returns (string memory);
+    function getImage(IPixelRenderer renderer, IAnimationEncoder encoder, uint8[] memory metadata, uint tokenId) external view returns (string memory);
 }

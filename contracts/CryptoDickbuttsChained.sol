@@ -112,7 +112,7 @@ contract CryptoDickbuttsChained is Ownable {
         uint8[] memory meta = metadata.getMetadata(tokenId);
         if (meta.length == 0) revert URIQueryForNonExistentToken(tokenId);
 
-        string memory imageUri = builder.getImage(renderer, encoder, meta);
+        string memory imageUri = builder.getImage(renderer, encoder, meta, tokenId);
         (uint256 width, uint256 height) = builder.getCanonicalSize();
         string memory imageDataUri = svgWrapper.getWrappedImage(
             imageUri,
@@ -189,7 +189,7 @@ contract CryptoDickbuttsChained is Ownable {
         view
         returns (string memory)
     {
-        string memory imageUri = builder.getImage(renderer, encoder, meta);
+        string memory imageUri = builder.getImage(renderer, encoder, meta, 0);
         (uint256 canonicalWidth, uint256 canonicalHeight) = builder.getCanonicalSize();
         string memory imageDataUri = svgWrapper.getWrappedImage(
             imageUri,
@@ -220,6 +220,6 @@ contract CryptoDickbuttsChained is Ownable {
         view
         returns (string memory)
     {
-        return builder.getImage(renderer, encoder, meta);
+        return builder.getImage(renderer, encoder, meta, 0);
     }
 }

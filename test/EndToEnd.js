@@ -21,7 +21,7 @@ describe("Deployments", function () {
         if (chainId == 8134646) {
             txOptions = null; // privatenode
         } else if (chainId == 31337) {
-            fs.unlinkSync("./scripts/manifest.json");
+            deleteFileIfExists("./scripts/manifest.json");
         } else {
             txOptions = getTxOptions();
         }

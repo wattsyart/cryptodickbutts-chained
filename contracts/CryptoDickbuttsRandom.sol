@@ -25,7 +25,7 @@ contract CryptoDickbuttsRandom is IRandom {
         returns (string memory imageUri, uint8[] memory metadata)
     {
         metadata = _randomMeta(seed);
-        imageUri = builder.getImage(renderer, encoder, metadata);
+        imageUri = builder.getImage(renderer, encoder, metadata, 0);
         return (imageUri, metadata);
     }
 
