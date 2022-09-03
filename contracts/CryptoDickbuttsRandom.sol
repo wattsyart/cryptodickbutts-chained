@@ -61,7 +61,7 @@ contract CryptoDickbuttsRandom is IRandom {
         if (PRNG.readBool(src)) {
             meta[4] = 48 + uint8(PRNG.readLessThan(src, 25, 8));
         } else {
-            meta[3] = 196;
+            meta[4] = 196;
         }
 
         // Mouth
