@@ -41,7 +41,7 @@ contract CryptoDickbuttsRandom is IRandom {
         meta[0] = uint8(PRNG.readLessThan(src, 8, 8));
 
         // Skin
-        meta[1] = 189 + uint8(PRNG.readLessThan(src, 11, 8));
+        meta[1] = 181 + uint8(PRNG.readLessThan(src, 11, 8));
 
         // Body
         if (PRNG.readBool(src)) {
