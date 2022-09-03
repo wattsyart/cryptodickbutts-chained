@@ -15,6 +15,7 @@ contract CryptoDickbuttsMetadata is IMetadata {
     mapping(uint8 => address) metadataData;
 
     function getMetadata(uint256 tokenId) external override view returns (uint8[] memory metadata) {
+        if(tokenId < 160 || tokenId > 5360) return metadata;
         uint8 metadataFile = getMetadataFileForToken(tokenId);
 
         bytes memory buffer = BufferUtils.decompress(metadataData[metadataFile],  metadataLengths[metadataFile]);
