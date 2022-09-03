@@ -12,9 +12,9 @@ interface ITokenURIBuilder {
         uint256 seedOrTokenId,
         string memory imageUri,
         string memory imageDataUri,
-        bytes memory description,
-        bytes memory externalUrl,
-        bytes memory prefix,
+        string memory description,
+        string memory externalUrl,
+        string memory prefix,
         uint8[] memory meta
     ) external view returns (string memory);
 }

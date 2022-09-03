@@ -15,12 +15,12 @@ contract TokenURIBuilder is ITokenURIBuilder {
         uint256 seedOrTokenId,
         string memory imageUri,
         string memory imageDataUri,
-        bytes memory description,
-        bytes memory externalUrl,
-        bytes memory prefix,
+        string memory description,
+        string memory externalUrl,
+        string memory prefix,
         uint8[] memory meta
     ) external view returns (string memory) {
-        string memory json = _getJsonPreamble(seedOrTokenId, description, externalUrl, prefix);
+        string memory json = _getJsonPreamble(seedOrTokenId, description, externalUrl, prefix);        
         json = string(
             abi.encodePacked(
                 json,
@@ -37,7 +37,7 @@ contract TokenURIBuilder is ITokenURIBuilder {
         return _encodeJson(json);
     }
 
-    function _getJsonPreamble(uint256 tokenId, bytes memory description, bytes memory externalUrl, bytes memory prefix)
+    function _getJsonPreamble(uint256 tokenId, string memory description, string memory externalUrl, string memory prefix)
         private
         pure
         returns (string memory json)
