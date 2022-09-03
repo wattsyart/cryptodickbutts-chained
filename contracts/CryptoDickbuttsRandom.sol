@@ -38,79 +38,79 @@ contract CryptoDickbuttsRandom is IRandom {
         PRNG.Source src = PRNG.newSource(keccak256(abi.encodePacked(seed)));
 
         // Background
-        meta[0] = uint8(PRNG.readLessThan(src, 9, 8));
+        meta[0] = uint8(PRNG.readLessThan(src, 8, 8));
 
         // Skin
         meta[1] = 189 + uint8(PRNG.readLessThan(src, 11, 8));
 
         // Body
         if (PRNG.readBool(src)) {
-            meta[2] = 9 + uint8(PRNG.readLessThan(src, 19, 8));
+            meta[2] = 8 + uint8(PRNG.readLessThan(src, 18, 8));
         } else {
-            meta[2] = 204;
+            meta[2] = 194;
         }
 
         // Hat
         if (PRNG.readBool(src)) {
-            meta[3] = 101 + uint8(PRNG.readLessThan(src, 53, 8));
+            meta[3] = 96 + uint8(PRNG.readLessThan(src, 52, 8));
         } else {
-            meta[3] = 205;
+            meta[3] = 195;
         }
 
         // Eyes
         if (PRNG.readBool(src)) {
-            meta[4] = 51 + uint8(PRNG.readLessThan(src, 26, 8));
+            meta[4] = 48 + uint8(PRNG.readLessThan(src, 25, 8));
         } else {
-            meta[3] = 206;
+            meta[3] = 196;
         }
 
         // Mouth
         if (PRNG.readBool(src)) {
-            meta[5] = 169 + uint8(PRNG.readLessThan(src, 5, 8));
+            meta[5] = 162 + uint8(PRNG.readLessThan(src, 4, 8));
         } else {
-            meta[5] = 207;
+            meta[5] = 197;
         }
 
         // Nose
         if (PRNG.readBool(src)) {
-            meta[6] = 173 + uint8(PRNG.readLessThan(src, 4, 8));
+            meta[6] = 166 + uint8(PRNG.readLessThan(src, 3, 8));
         } else {
-            meta[6] = 208;
+            meta[6] = 198;
         }
 
         // Hand
         if (PRNG.readBool(src)) {
-            meta[7] = 77 + uint8(PRNG.readLessThan(src, 24, 8));
+            meta[7] = 73 + uint8(PRNG.readLessThan(src, 23, 8));
         } else {
-            meta[7] = 209;
+            meta[7] = 199;
         }
 
         // Shoes
         if (PRNG.readBool(src)) {
-            meta[8] = 177 + uint8(PRNG.readLessThan(src, 13, 8));
+            meta[8] = 169 + uint8(PRNG.readLessThan(src, 12, 8));
         } else {
-            meta[8] = 210;
+            meta[8] = 200;
         }
 
         // Butt
         if (PRNG.readBool(src)) {
-            meta[9] = 28 + uint8(PRNG.readLessThan(src, 4, 8));
+            meta[9] = 26 + uint8(PRNG.readLessThan(src, 3, 8));
         } else {
-            meta[9] = 211;
+            meta[9] = 201;
         }
 
         // Dick
         if (PRNG.readBool(src)) {
-            meta[10] = 32 + uint8(PRNG.readLessThan(src, 20, 8));
+            meta[10] = 29 + uint8(PRNG.readLessThan(src, 19, 8));
         } else {
-            meta[10] = 212;
+            meta[10] = 202;
         }
 
         // Special
         if (PRNG.readBool(src)) {
-            meta[11] = 200 + uint8(PRNG.readLessThan(src, 4, 8));
+            meta[11] = 192 + uint8(PRNG.readLessThan(src, 2, 8));
         } else {
-            meta[11] = 213;
+            meta[11] = 203;
         }
     }
 }
