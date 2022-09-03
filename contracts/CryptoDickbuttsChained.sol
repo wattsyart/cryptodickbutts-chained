@@ -166,6 +166,32 @@ contract CryptoDickbuttsChained is Ownable {
     }
 
     /**
+    @notice Retrieves the image data URI for a given token ID.
+    @param tokenId Token ID referring to an existing CryptoDickbutts NFT Token ID
+    */
+    function imageURI(uint256 tokenId) external view returns (string memory) {
+        uint8[] memory meta = metadata.getMetadata(tokenId);
+        if (meta.length == 0) revert URIQueryForNonExistentToken(tokenId);        
+        return builder.getImage(renderer, encoder, meta, tokenId);
+    }
+
+    /**
+    @notice Retrieves the image data URI for a given token ID, wrapped in an SVG for large display formats.
+    @param tokenId Token ID referring to an existing CryptoDickbutts NFT Token ID
+    */
+    function imageURIWrapped(uint256 tokenId) external view returns (string memory) {
+        uint8[] memory meta = metadata.getMetadata(tokenId);
+        if (meta.length == 0) revert URIQueryForNonExistentToken(tokenId); 
+        string memory imageUri = builder.getImage(renderer, encoder, meta, tokenId);
+        (uint256 width, uint256 height) = builder.getCanonicalSize();
+        return svgWrapper.getWrappedImage(
+            imageUri,
+            width,
+            height
+        );
+    }
+
+    /**
     @notice Retrieves the token data URI for a given token ID. Includes both the image and its accompanying metadata.
     @param tokenId Token ID referring to an existing CryptoDickbutts NFT Token ID
     */
