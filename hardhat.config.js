@@ -1,5 +1,6 @@
-require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
+require("@nomicfoundation/hardhat-chai-matchers")
+
 require("hardhat-gas-reporter");
 
 // require("./tasks/tasks.js");
