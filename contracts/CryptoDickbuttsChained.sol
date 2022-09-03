@@ -59,8 +59,6 @@ This work is published from: Canada.
 pragma solidity ^0.8.13;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
-import "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol";
 
 import "./lib/interfaces/IBuilder.sol";
 import "./lib/interfaces/IMetadata.sol";
@@ -77,13 +75,20 @@ contract CryptoDickbuttsChained is Ownable {
     bytes32 constant COPYRIGHT_CC0_1_0_UNIVERSAL_LICENSE =
         0xa2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499;
 
-    string constant DESCRIPTION = "Once a utopia, Gooch Island has fallen and CryptoDickbutts have been evacuated. Series 3 features 5200 all new CryptoDickbutts, each with a set of randomly generated traits.";
-    string constant EXTERNAL_URL = "https://cryptodickbutts.com/";
-    string constant PREFIX = "CryptoDickbutt";
+    string DESCRIPTION = "Once a utopia, Gooch Island has fallen and CryptoDickbutts have been evacuated. Series 3 features 5200 all new CryptoDickbutts, each with a set of randomly generated traits.";
+    string EXTERNAL_URL = "https://cryptodickbutts.com/";
+    string PREFIX = "CryptoDickbutt";
 
     error URIQueryForNonExistentToken(uint256 tokenId);
 
-    using ERC165Checker for address;
+    /**
+    @notice Sets the address of the metadata provider contract.
+     */
+    function setDetails(string memory description, string memory externalUrl, string memory prefix) external onlyOwner {
+        DESCRIPTION = description;
+        EXTERNAL_URL = externalUrl;
+        PREFIX = prefix;
+    }
 
     /** @notice Contract responsible for looking up metadata. */
     IMetadata public metadata;
