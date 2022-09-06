@@ -272,6 +272,25 @@ contract CryptoDickbuttsChained is Ownable {
     }
 
     /**
+    @notice Retrieves a random image data URI, wrapped in an SVG for large display formats. This generates a completely new and unoffical CryptoDickbutts image.
+    */
+    function randomImageURIWrapped(uint64 seed) external view returns (string memory) {
+        (string memory imageUri, ) = random.randomImageURI(
+            seed,
+            builder,
+            renderer,
+            encoder
+        );
+        (uint256 canonicalWidth, uint256 canonicalHeight) = builder.getCanonicalSize();
+        string memory imageDataUri = svgWrapper.getWrappedImage(
+            imageUri,
+            canonicalWidth,
+            canonicalHeight
+        );
+        return imageDataUri;
+    }
+
+    /**
     @notice Retrieves a specific token URI built from raw metadata. This generates a user-defined Cryptodickbutt, not officially part of the collection.
     @param meta An array of unsigned 8-bit integers (bytes) to use to produce the raw image.
     @dev The data passed here is not validated, so can result in an illogical Cryptodickbutt, or rendering errors, if the format is not valid.
