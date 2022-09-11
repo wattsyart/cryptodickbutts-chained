@@ -106,10 +106,10 @@ public class DownloadController : ControllerBase
 
         var identifier = metadata.Name?.Replace("CryptoDickbutt #", string.Empty);
 
-        // var cachePath = $"{identifier}_cache.png";
+        var cachePath = $"{identifier}_cache.png";
 
-        //if (System.IO.File.Exists(cachePath))
-        //    return File(System.IO.File.OpenRead(cachePath), mediaType, DateTimeOffset.Now, ETag(buffer));
+        if (System.IO.File.Exists(cachePath))
+            return File(System.IO.File.OpenRead(cachePath), mediaType, DateTimeOffset.Now, ETag(buffer));
 
         var image = Image.Load(buffer, decoder);
 
@@ -124,7 +124,7 @@ public class DownloadController : ControllerBase
         ms.Position = 0;
 
         var resized = ms.ToArray();
-        // System.IO.File.WriteAllBytes(cachePath, resized);
+        System.IO.File.WriteAllBytes(cachePath, resized);
 
         return File(resized, mediaType, DateTimeOffset.Now, ETag(buffer));
     }
