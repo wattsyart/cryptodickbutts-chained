@@ -6,6 +6,8 @@ namespace CryptoDickbuttsChained.Server.Discord;
 // ReSharper disable once UnusedMember.Global (Reflection)
 public class DickbuttsCommandHandler : IDiscordInteractionCommandHandler
 {
+    public const string Description = "Once a utopia, Gooch Island has fallen and CryptoDickbutts have been evacuated. Series 3 features 5200 all new CryptoDickbutts, each with a set of randomly generated traits.";
+
     // ReSharper disable once UnusedMember.Global
     [InteractionCommandBuilder]
     public static DiscordApplicationCommand Build()
@@ -58,9 +60,9 @@ public class DickbuttsCommandHandler : IDiscordInteractionCommandHandler
                 command.AddEmbed(embed =>
                 {
                     embed.WithTitle($"CryptoDickbutt #{tokenId}");
-                    embed.WithDescription("A small, warty, amphibious creature that resides in the metaverse.");
-                    embed.WithURL($"https://cryptodickbuttschained.com/{tokenId}");
-                    embed.WithImage($"https://cryptodickbuttschained.com/canonical/img/{tokenId}");
+                    embed.WithDescription(Description);
+                    embed.WithURL($"https://cryptodickbuttschained.azurewebsites.net/{tokenId}");
+                    embed.WithImage($"https://cryptodickbuttschained.azurewebsites.net/canonical/img/{tokenId}");
                 });
             }
             else
@@ -74,9 +76,9 @@ public class DickbuttsCommandHandler : IDiscordInteractionCommandHandler
                 command.AddEmbed(embed =>
                 {
                     embed.WithTitle($"CryptoDickbutt #{seed}");
-                    embed.WithDescription("A small, warty, amphibious creature that resides in the metaverse.");
-                    embed.WithURL($"https://cryptodickbuttschained.com/random/{seed}");
-                    embed.WithImage($"https://cryptodickbuttschained.com/random/img/{seed}");
+                    embed.WithDescription(Description);
+                    embed.WithURL($"https://cryptodickbuttschained.azurewebsites.net/random/{seed}");
+                    embed.WithImage($"https://cryptodickbuttschained.azurewebsites.net/random/img/{seed}");
                 });
             }
         }
