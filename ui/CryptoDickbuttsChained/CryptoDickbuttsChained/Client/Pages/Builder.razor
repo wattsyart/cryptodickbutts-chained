@@ -1,0 +1,460 @@
+﻿@page "/builder"
+@inherits PageBase
+
+<div class="container">
+    <div class="form-group mb-3">
+        <label for="contractAddress">On-Chain Contract Address:</label>
+        <input id="contractAddress" type="text" class="form-control" @bind="Options.Value.OnChainContractAddress" />
+    </div>
+
+    <ToggleInputText Label="On-Chain RPC URL" @bind-Text="@Options.Value.OnChainRpcUrl" @bind-HideFields="@Options.Value.HideSensitiveFields" Placeholder="Leave blank to use our server, or paste your own RPC URL"/>
+</div>
+
+<br />
+
+<div>
+    <section>
+        <div class="container">
+
+            <div class="row align-items-start justify-content-around">
+                <div class="col-md-9 col-lg col-xl-4 sticky-lg-top mb-5 mb-lg-0">
+
+                    <EditForm Model="@Dickbutt">
+                        
+                        <div class="form-group">
+                            <label for="background">Background:</label>
+                            <InputSelect id="background" class="form-control"
+                                         ValueExpression="@(() => Dickbutt.Background)"
+                                         Value="@Dickbutt.Background"
+                                         ValueChanged="@((Background value) => @OnBackgroundChanged(value))">
+                                @foreach (var value in EnumExtensions.GetValues<Background>())
+                                {
+                                    <option value="@value">@value.Describe()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="skin">Skin:</label>
+                            <InputSelect id="skin" class="form-control"
+                                         ValueExpression="@(() => Dickbutt.Skin)"
+                                         Value="@Dickbutt.Skin"
+                                         ValueChanged="@((Skin value) => @OnSkinChanged(value))">
+                                @foreach (var value in EnumExtensions.GetValues<Skin>())
+                                {
+                                    <option value="@value">@value.Describe()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="body">Body:</label>
+                            <InputSelect id="body" class="form-control"
+                                         ValueExpression="@(() => Dickbutt.Body)"
+                                         Value="@Dickbutt.Body"
+                                         ValueChanged="@((Body value) => @OnBodyChanged(value))">
+                                @foreach (var value in EnumExtensions.GetValues<Body>())
+                                {
+                                    <option value="@value">@value.Describe()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hat">Hat:</label>
+                            <InputSelect id="hat" class="form-control"
+                                         ValueExpression="@(() => Dickbutt.Hat)"
+                                         Value="@Dickbutt.Hat"
+                                         ValueChanged="@((Hat value) => OnHatChanged(value))">
+                                @foreach (var value in EnumExtensions.GetValues<Hat>())
+                                {
+                                    <option value="@value">@value.Describe()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eyes">Eyes:</label>
+                            <InputSelect id="eyes" class="form-control"
+                                         ValueExpression="@(() => Dickbutt.Eyes)"
+                                         Value="@Dickbutt.Eyes"
+                                         ValueChanged="@((Eyes value) => OnEyesChanged(value))">
+                                @foreach (var value in EnumExtensions.GetValues<Eyes>())
+                                {
+                                    <option value="@value">@value.Describe()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mouth">Mouth:</label>
+                            <InputSelect id="mouth" class="form-control"
+                                         ValueExpression="@(() => Dickbutt.Mouth)"
+                                         Value="@Dickbutt.Mouth"
+                                         ValueChanged="@((Mouth value) => OnMouthChanged(value))">
+                                @foreach (var value in EnumExtensions.GetValues<Mouth>())
+                                {
+                                    <option value="@value">@value.Describe()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nose">Nose:</label>
+                            <InputSelect id="nose" class="form-control"
+                                         ValueExpression="@(() => Dickbutt.Nose)"
+                                         Value="@Dickbutt.Nose"
+                                         ValueChanged="@((Nose value) => OnNoseChanged(value))">
+                                @foreach (var value in EnumExtensions.GetValues<Nose>())
+                                {
+                                    <option value="@value">@value.Describe()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hand">Hand:</label>
+                            <InputSelect id="hand" class="form-control"
+                                         ValueExpression="@(() => Dickbutt.Hand)"
+                                         Value="@Dickbutt.Hand"
+                                         ValueChanged="@((Hand value) => OnHandChanged(value))">
+                                @foreach (var value in EnumExtensions.GetValues<Hand>())
+                                {
+                                    <option value="@value">@value.Describe()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="shoes">Shoes:</label>
+                            <InputSelect id="shoes" class="form-control"
+                                         ValueExpression="@(() => Dickbutt.Shoes)"
+                                         Value="@Dickbutt.Shoes"
+                                         ValueChanged="@((Shoes value) => OnShoesChanged(value))">
+                                @foreach (var value in EnumExtensions.GetValues<Shoes>())
+                                {
+                                    <option value="@value">@value.Describe()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="butt">Butt:</label>
+                            <InputSelect id="butt" class="form-control"
+                                         ValueExpression="@(() => Dickbutt.Butt)"
+                                         Value="@Dickbutt.Butt"
+                                         ValueChanged="@((Butt value) => OnButtChanged(value))">
+                                @foreach (var value in EnumExtensions.GetValues<Butt>())
+                                {
+                                    <option value="@value">@value.Describe()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dick">Dick:</label>
+                            <InputSelect id="dick" class="form-control"
+                                         ValueExpression="@(() => Dickbutt.Dick)"
+                                         Value="@Dickbutt.Dick"
+                                         ValueChanged="@((Dick value) => OnDickChanged(value))">
+                                @foreach (var value in EnumExtensions.GetValues<Dick>())
+                                {
+                                    <option value="@value">@value.Describe()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="special">Special:</label>
+                            <InputSelect id="special" class="form-control"
+                                         ValueExpression="@(() => Dickbutt.Special)"
+                                         Value="@Dickbutt.Special"
+                                         ValueChanged="@((Special value) => OnSpecialChanged(value))">
+                                @foreach (var value in EnumExtensions.GetValues<Special>())
+                                {
+                                    <option value="@value">@value.Describe()</option>
+                                }
+                            </InputSelect>
+                        </div>
+
+                    </EditForm>
+                    
+                    @if (!string.IsNullOrWhiteSpace(BuilderSeed))
+                    {
+                        <br />
+                    
+                        <button class="btn btn-dark" @onclick="DownloadImageAsync">
+                            <i class="oi oi-data-transfer-download align-middle" aria-hidden="true"></i>
+                            <span class="align-middle">Image</span>
+                        </button>
+
+                        <button style="margin-left: 5px" class="btn btn-dark" @onclick="DownloadMetadataAsync">
+                            <i class="oi oi-data-transfer-download align-middle" aria-hidden="true"></i>
+                            <span class="align-middle">Metadata</span>
+                        </button>
+
+                        <button style="margin-left: 5px" class="btn btn-dark" @onclick="ShareImageAsync" target="_blank">
+                            <i class="oi oi-external-link align-middle" aria-hidden="true"></i>
+                            <span class="align-middle">Share Image</span>
+                        </button>
+
+                        @if (Dickbutt is not {Background: Background.None } && Dickbutt is not { Skin: Skin.None })
+                        {
+                            <button style="margin-left: 5px" class="btn btn-dark" @onclick="ShareMetadataAsync" target="_blank">
+                                <i class="oi oi-external-link align-middle" aria-hidden="true"></i>
+                                <span class="align-middle">Share Metadata</span>
+                            </button>  
+                        }
+                    }
+                </div>
+
+                @if (!string.IsNullOrWhiteSpace(Error))
+                {
+                    <div class="alert alert-danger">@Error</div>
+                }
+                else
+                {
+                    @if (Metadata != null)
+                    {
+                        <div class="col-xl-7 col-lg-8 col-md-9">
+                            <article>
+                                <h2 class="h2">@Metadata.Name</h2>
+                                <p class="mb-5">
+                                    <img style="image-rendering: -moz-crisp-edges; image-rendering: -webkit-crisp-edges; image-rendering: pixelated; width: 100%; height: 100%" src="@ImageUri" alt="@Metadata.Name" />
+                                </p>
+                                <p class="lead text-center">
+                                    @Metadata.Description
+                                </p>
+                            </article>
+                        </div>
+                    }
+                    else if (IsLoading)
+                    {
+                        <div class="col-xl-7 col-lg-8 col-md-9">
+                            <article>
+                                <h2 class="h2">Building...</h2>
+                                <p class="mb-5">
+                                    <div class="spinner"></div>
+                                </p>
+                                <p class="lead text-center">
+                                </p>
+                            </article>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+@code
+{
+    private Dickbutt Dickbutt = new Dickbutt();
+
+    [Parameter]
+    public string? BuilderSeed { get; set; }
+
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public JsonTokenMetadata? Metadata { get; set; }
+
+    [Parameter]
+    public string? ImageUri { get; set; }
+
+    [Parameter]
+    public string? TokenUri { get; set; }
+
+    [Parameter]
+    public string? Error { get; set; }
+
+    bool _initializing;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Dickbutt = new Dickbutt();
+
+        var uri = Nav.ToAbsoluteUri(Nav.Uri);
+        var query = QueryHelpers.ParseQuery(uri.Query);
+
+        if (query.TryGetValue("seed", out var seed))
+            BuilderSeed = seed;
+
+        if (!string.IsNullOrWhiteSpace(BuilderSeed))
+        {
+            _initializing = true;
+
+            var meta = Convert.FromBase64String(BuilderSeed);
+
+            Dickbutt.Background = (Background) meta[0];
+            Dickbutt.Skin = (Skin) meta[1];
+            Dickbutt.Body = (Body) meta[2];
+            Dickbutt.Hat = (Hat) meta[3];
+            Dickbutt.Eyes = (Eyes) meta[4];
+            Dickbutt.Mouth = (Mouth) meta[5];
+            Dickbutt.Nose = (Nose) meta[6];
+            Dickbutt.Hand = (Hand) meta[7];
+            Dickbutt.Shoes = (Shoes) meta[8];
+            Dickbutt.Butt = (Butt) meta[9];
+            Dickbutt.Dick = (Dick) meta[10];
+            Dickbutt.Special = (Special) meta[11];
+
+            _initializing = false;
+        }
+
+        await OnDickbuttChangedAsync();
+    }
+
+    private async Task OnBackgroundChanged(Background value)
+    {
+        Dickbutt.Background = value;
+        await OnDickbuttChangedAsync();
+    }
+
+    private async Task OnSkinChanged(Skin value)
+    {
+        Dickbutt.Skin = value;
+        await OnDickbuttChangedAsync();
+    }
+
+    private async Task OnBodyChanged(Body value)
+    {
+        Dickbutt.Body = value;
+        await OnDickbuttChangedAsync();
+    }
+
+
+    private async Task OnHatChanged(Hat value)
+    {
+        Dickbutt.Hat = value;
+        await OnDickbuttChangedAsync();
+    }
+    
+    private async Task OnEyesChanged(Eyes value)
+    {
+        Dickbutt.Eyes = value;
+        await OnDickbuttChangedAsync();
+    }
+
+    private async Task OnMouthChanged(Mouth value)
+    {
+        Dickbutt.Mouth = value;
+        await OnDickbuttChangedAsync();
+    }
+
+    private async Task OnNoseChanged(Nose value)
+    {
+        Dickbutt.Nose = value;
+        await OnDickbuttChangedAsync();
+    }
+
+    private async Task OnHandChanged(Hand value)
+    {
+        Dickbutt.Hand = value;
+        await OnDickbuttChangedAsync();
+    }
+
+    private async Task OnShoesChanged(Shoes value)
+    {
+        Dickbutt.Shoes = value;
+        await OnDickbuttChangedAsync();
+    }
+
+    private async Task OnButtChanged(Butt value)
+    {
+        Dickbutt.Butt = value;
+        await OnDickbuttChangedAsync();
+    }
+
+    private async Task OnDickChanged(Dick value)
+    {
+        Dickbutt.Dick = value;
+        await OnDickbuttChangedAsync();
+    }
+
+    private async Task OnSpecialChanged(Special value)
+    {
+        Dickbutt.Special = value;
+        await OnDickbuttChangedAsync();
+    }
+    
+    private async Task OnDickbuttChangedAsync()
+    {
+        if (_initializing) return;
+
+        IsLoading = true;
+        try
+        {
+            Metadata = null;
+            TokenUri = null;
+            ImageUri = null;
+            Error = null;
+
+            if (!string.IsNullOrWhiteSpace(Options.Value.OnChainRpcUrl))
+            {
+                var body = await DickbuttsService.BuildTokenURIAsync(Dickbutt, Options.Value.OnChainRpcUrl, Options.Value.OnChainContractAddress, Logger);
+                WithBody(body);
+            }
+            else
+            {
+                var response = await Http.PostAsJsonAsync("dickbutts/build", Dickbutt);
+                await WithResponse(response);
+            }
+        }
+        finally
+        {
+            IsLoading = false;
+        }
+    }
+
+    private async Task WithResponse(HttpResponseMessage response)
+    {
+        if (response.IsSuccessStatusCode)
+        {
+            var body = await response.Content.ReadAsStringAsync();
+
+            WithBody(body);
+        }
+        else
+        {
+            Error = $"{(int)response.StatusCode} {response.ReasonPhrase}";
+        }
+    }
+
+    private void WithBody(string body)
+    {
+        TokenUri = body;
+        if (!TokenUri.StartsWith(DataUri.Json))
+        {
+            Error = TokenUri;
+            TokenUri = null;
+        }
+        else
+        {
+            if (!string.IsNullOrWhiteSpace(TokenUri))
+            {
+                var data = TokenUri.Replace(DataUri.Json, "");
+                var buffer = Convert.FromBase64String(data);
+                var json = Encoding.UTF8.GetString(buffer);
+
+                Metadata = JsonSerializer.Deserialize<JsonTokenMetadata>(json);
+                ImageUri = Metadata?.Image;
+                BuilderSeed = Metadata?.Name?.Replace("CryptoDickbutt #", "");
+
+                if (!string.IsNullOrWhiteSpace(BuilderSeed))
+                    Nav.NavigateTo($"/builder/?seed={BuilderSeed}");
+            }
+        }
+    }
+
+    private async Task DownloadImageAsync() => await base.DownloadImageAsync(ImageUri!, $"CDB_{BuilderSeed}");
+
+    private async Task DownloadMetadataAsync() => await base.DownloadMetadataAsync(Metadata!, $"CDB_{BuilderSeed}", false);
+
+    private async Task ShareImageAsync() => await ShareAsync($"/builder/img/?seed={@BuilderSeed}");
+
+    private async Task ShareMetadataAsync() => await ShareAsync($"/builder/json/?seed={@BuilderSeed}");
+}
