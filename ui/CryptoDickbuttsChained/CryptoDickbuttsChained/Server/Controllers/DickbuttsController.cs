@@ -34,11 +34,5 @@ namespace CryptoDickbuttsChained.Server.Controllers
         {
             return await DickbuttsService.BuildTokenURIAsync(dickbutt, _options.Value.OnChainRpcUrl, _options.Value.OnChainContractAddress, _logger);
         }
-
-        [HttpPost("compare")]
-        public ParityStateRow CompareImages([FromBody] ParityStateRow row, CancellationToken cancellationToken)
-        {
-            return ParityService.CompareImages(row, cancellationToken);
-        }
     }
 }

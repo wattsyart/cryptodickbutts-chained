@@ -2,11 +2,6 @@
 
 public static class ParityScopeExtensions
 {
-    public static uint Count(this ParityScope scope)
-    {
-        return (uint) TokenIds(scope).Count();
-    }
-
     public static IEnumerable<uint> TokenIds(this ParityScope scope)
     {
         var tokenIds = scope switch
