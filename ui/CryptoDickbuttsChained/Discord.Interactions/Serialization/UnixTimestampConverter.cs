@@ -8,8 +8,8 @@ namespace TehGM.Discord.Serialization
     /// <remarks>This class also contains non-JSON static converting methods.</remarks>
     public class UnixTimestampConverter : DateTimeConverterBase
     {
-        public static readonly DateTime _epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        public static readonly DateTimeOffset _epochOffset = new DateTimeOffset(_epoch);
+        private static readonly DateTime _epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        private static readonly DateTimeOffset _epochOffset = new DateTimeOffset(_epoch);
 
         /// <summary>Converts provided date and time value to unix timestamp (in seconds).</summary>
         /// <param name="value">The value to convert to unix timestamp.</param>

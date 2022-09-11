@@ -105,6 +105,7 @@ namespace TehGM.Discord.Interactions
         /// <returns>A new Discord Application Command instance.</returns>
         /// <exception cref="ArgumentException"><paramref name="name"/> or <paramref name="description"/> is of invalid length.</exception>
         /// <seealso href="https://discord.com/developers/docs/interactions/application-commands#slash-commands"/>
+        /// </summary>
         public static DiscordApplicationCommand SlashCommand(string name, string description, bool enabledByDefault = true)
             => new DiscordApplicationCommand(DiscordApplicationCommandType.ChatInput, name, description, enabledByDefault);
         /// <summary>Creates a new user (UI) command./summary>
@@ -113,6 +114,7 @@ namespace TehGM.Discord.Interactions
         /// <returns>A new Discord Application Command instance.</returns>
         /// <exception cref="ArgumentException"><paramref name="name"/> is of invalid length.</exception>
         /// <seealso href="https://discord.com/developers/docs/interactions/application-commands#user-commands"/>
+        /// </summary>
         public static DiscordApplicationCommand UserCommand(string name, bool enabledByDefault = true)
             => new DiscordApplicationCommand(DiscordApplicationCommandType.User, name, null, enabledByDefault);
         /// <summary>Creates a new message (UI) command./summary>
@@ -121,6 +123,7 @@ namespace TehGM.Discord.Interactions
         /// <returns>A new Discord Application Command instance.</returns>
         /// <exception cref="ArgumentException"><paramref name="name"/> is of invalid length.</exception>
         /// <seealso href="https://discord.com/developers/docs/interactions/application-commands#message-commands"/>
+        /// </summary>
         public static DiscordApplicationCommand MessageCommand(string name, bool enabledByDefault = true)
             => new DiscordApplicationCommand(DiscordApplicationCommandType.Message, name, null, enabledByDefault);
 

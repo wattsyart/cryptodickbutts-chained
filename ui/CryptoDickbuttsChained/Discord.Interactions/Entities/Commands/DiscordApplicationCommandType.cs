@@ -4,7 +4,7 @@
     public enum DiscordApplicationCommandType
     {
         /// <summary>User typed a slash command.</summary>
-        /// <seealso cref="https://discord.com/developers/docs/interactions/application-commands#slash-commands"/>
+        /// <seealso href="https://discord.com/developers/docs/interactions/application-commands#slash-commands"/>
         ChatInput = 1,
         /// <summary>User right clicked on a user.</summary>
         /// <seealso href="https://discord.com/developers/docs/interactions/application-commands#user-commands"/>

@@ -182,7 +182,7 @@
         }
     }
 
-    private async Task WithBodyAsync(string body)
+    private Task WithBodyAsync(string body)
     {
         TokenUri = body;
         if (!TokenUri.StartsWith(DataUri.Json))
@@ -202,6 +202,8 @@
                 Nav.NavigateTo(TokenId ?? "/");
             }
         }
+
+        return Task.CompletedTask;
     }
 
     private async Task DownloadImageAsync() => await DownloadImageAsync(ImageUri!, $"CDB_{TokenId}");
