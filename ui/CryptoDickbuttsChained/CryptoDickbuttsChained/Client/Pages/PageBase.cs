@@ -51,38 +51,43 @@ namespace CryptoDickbuttsChained.Client.Pages
             await Js.InvokeVoidAsync("downloadFileFromStream", $"{filename}.{extension}", stream);
         }
 
-        protected async Task DownloadMetadataAsync(JsonTokenMetadata? metadata, string filename, bool canonical)
+        protected async Task DownloadMetadataAsync(JsonTokenMetadata? metadata, string filename)
         {
             if (metadata == null)
                 return;
 
             var imageData = metadata.ImageData;
 
-            var size = metadata.Attributes.SingleOrDefault(x => x.TraitType == "Size");
-            if (canonical && size != null)
-                metadata.Attributes.Remove(size); // remove size attribute if it was augmented through the app via `isTall`
-            
             byte[] buffer;
             try
             {
                 metadata.ImageData = null;
-                var data = JsonSerializer.Serialize(metadata, new JsonSerializerOptions(JsonSerializerDefaults.Web)
-                {
-                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-                });
+
+                var clone = JsonSerializer.Deserialize<JsonTokenMetadata>(SerializeMetadata(metadata))!;
+
+                // fix a hack to allow building without a background
+                if (clone.Attributes[0].TraitType == "Special")
+                    clone.Attributes[0].TraitType = "Background";
+
+                var data = SerializeMetadata(clone);
                 buffer = Encoding.UTF8.GetBytes(data);
             }
             finally
             {
                 metadata.ImageData = imageData;
-
-                if (canonical && size != null)
-                    metadata.Attributes.Insert(0, size); // add size attribute back for display purposes
             }
 
             var ms = new MemoryStream(buffer);
             using var stream = new DotNetStreamReference(ms);
             await Js.InvokeVoidAsync("downloadFileFromStream", $"{filename}.json", stream);
+        }
+
+        private static string SerializeMetadata(JsonTokenMetadata metadata)
+        {
+            return JsonSerializer.Serialize(metadata, new JsonSerializerOptions(JsonSerializerDefaults.Web)
+            {
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            });
         }
 
         protected async Task ShareAsync(string url) => await Js.InvokeAsync<object>("open", url, "_blank");

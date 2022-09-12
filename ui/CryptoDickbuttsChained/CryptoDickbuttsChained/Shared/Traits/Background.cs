@@ -4,7 +4,8 @@ namespace CryptoDickbuttsChained.Shared.Traits
 {
     public enum Background : byte
     {
-        None = 0, 
+        [Description("None")]
+        None = 203, 
         [Description("Grassy Knoll")]
         GrassyKnoll = 2,
         [Description("Picnic Day")]

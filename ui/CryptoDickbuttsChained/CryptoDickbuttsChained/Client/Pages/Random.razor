@@ -221,7 +221,7 @@
     
     private async Task DownloadImageAsync() => await base.DownloadImageAsync(ImageUri!, $"CDB_{TokenSeed}");
 
-    private async Task DownloadMetadataAsync() => await base.DownloadMetadataAsync(Metadata!, $"CDB_{TokenSeed}", false);
+    private async Task DownloadMetadataAsync() => await base.DownloadMetadataAsync(Metadata!, $"CDB_{TokenSeed}");
 
     private async Task ShareImageAsync() => await ShareAsync($"/random/img/{@TokenSeed}");
 

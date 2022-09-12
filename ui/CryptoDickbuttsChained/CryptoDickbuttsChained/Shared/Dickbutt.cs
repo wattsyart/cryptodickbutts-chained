@@ -14,7 +14,7 @@ namespace CryptoDickbuttsChained.Shared
         public Mouth Mouth { get; set; } = Mouth.None;
         public Nose Nose { get; set; } = Nose.None;
         public Shoes Shoes { get; set; } = Shoes.None;
-        public Skin Skin { get; set; } = Skin.None;
+        public Skin Skin { get; set; } = Skin.Mid;
         public Special Special { get; set; } = Special.None;
 
     }

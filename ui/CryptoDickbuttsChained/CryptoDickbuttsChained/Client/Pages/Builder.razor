@@ -198,7 +198,7 @@
                             <span class="align-middle">Share Image</span>
                         </button>
 
-                        @if (Dickbutt is not {Background: Background.None } && Dickbutt is not { Skin: Skin.None })
+                        @if (Dickbutt is not {Background: Background.None })
                         {
                             <button style="margin-left: 5px" class="btn btn-dark" @onclick="ShareMetadataAsync" target="_blank">
                                 <i class="oi oi-external-link align-middle" aria-hidden="true"></i>
@@ -452,7 +452,7 @@
 
     private async Task DownloadImageAsync() => await base.DownloadImageAsync(ImageUri!, $"CDB_{BuilderSeed}");
 
-    private async Task DownloadMetadataAsync() => await base.DownloadMetadataAsync(Metadata!, $"CDB_{BuilderSeed}", false);
+    private async Task DownloadMetadataAsync() => await base.DownloadMetadataAsync(Metadata!, $"CDB_{BuilderSeed}");
 
     private async Task ShareImageAsync() => await ShareAsync($"/builder/img/?seed={@BuilderSeed}");
 

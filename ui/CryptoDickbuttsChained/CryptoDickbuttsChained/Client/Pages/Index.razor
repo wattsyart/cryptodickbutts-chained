@@ -208,7 +208,7 @@
 
     private async Task DownloadImageAsync() => await DownloadImageAsync(ImageUri!, $"CDB_{TokenId}");
 
-    private async Task DownloadMetadataAsync() => await DownloadMetadataAsync(Metadata!, $"CDB_{TokenId}", true);
+    private async Task DownloadMetadataAsync() => await DownloadMetadataAsync(Metadata!, $"CDB_{TokenId}");
 
     private async Task ShareImageAsync() => await ShareAsync($"/canonical/img/{@TokenId}");
 

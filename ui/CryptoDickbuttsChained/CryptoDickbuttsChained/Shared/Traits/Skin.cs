@@ -4,7 +4,6 @@ namespace CryptoDickbuttsChained.Shared.Traits;
 
 public enum Skin : byte
 {
-    None = 0,
     [Description("Mid")]
     Mid = 186,
     [Description("Zombie")]
